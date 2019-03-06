@@ -1,7 +1,7 @@
 
-#### README ==================================================================== 
+#### README ####
 
-# Proyecto:     SAE - Proyección Conflictos     
+# Proyecto:     SAE - ProyecciÃ³n Conflictos     
 # Objetivo:     Generar una lista con todas las encuestas de Ipsos en formato
 #               data frame
 # Output:       lista_encuestas (list)      
@@ -13,7 +13,7 @@ library(foreign)        # Importar de otros formatos (SPSS, Stata, etc.)
 library(stringr)        # Manipular characters
 library(dplyr)          # Manejo eficiente de data frames
 library(rlist)          # Trabajo eficiente con listas
-library(memisc)         # Importación eficiente desde SPSS
+library(memisc)         # ImportaciÃ³n eficiente desde SPSS
 library(sjlabelled)     # Manejo de labels de data importada
 
 
@@ -34,14 +34,14 @@ diccionario <- read.csv(paste0(input, "variables.csv"))
 ## Limpiar missings
 diccionario <- diccionario[complete.cases(diccionario$Pregunta.Base), ]
 
-## Generar columna con número de indicador
+## Generar columna con nÃºmero de indicador
 diccionario$check <- gsub("[^0-9]", "", diccionario$Indicador)
 
 
 ## Generar id de encuesta ------------------------------------------------------
 
 ## Vector con ID de encuestas IPSOS
-id_encuestas <- as.character(unique(diccionario$Código))
+id_encuestas <- as.character(unique(diccionario$CÃ³digo))
 
 
 #### IMPORTAR ENCUESTAS ========================================================
@@ -104,7 +104,7 @@ for (i in seq_along(nombres_spss)) {
 
 #### CREAR LISTA DE ENCUESTAS ==================================================
 
-## Crear lista (vacía) para todas las encuestas 
+## Crear lista (vacÃ­a) para todas las encuestas 
 lista_encuestas <- list()
 
 ## Incorporar a la lista los dos DF trabajados independientemente
